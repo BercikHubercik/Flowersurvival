@@ -1,0 +1,81 @@
+
+
+
+
+
+<MainScreen>:
+    GridLayout:
+        cols: 1
+        Label:
+            text: "Flower Survival"
+            pos_hint: {"x":0, "y":0.3}
+            color: 211/255, 95/255, 200/255, 1
+        Button:
+            text: "Add Plant"
+            on_release:
+                app.root.current = "add_plant"
+                root.manager.transition.direction = "up"
+        Button:
+            text: "My Plants"
+            on_release:
+                app.root.current = "plant_list"
+                root.manager.transition.direction = "up"
+
+<PlantListScreen>:
+
+
+
+
+
+
+<AddingPlantScreen>:
+    plant_name: plant_name
+    water_freq: water_freq
+    last_water_date: last_water_date
+    last_water_hour: last_water_hour
+
+    GridLayout:
+        cols: 1
+        GridLayout:
+            cols: 2
+            Label:
+                text: "Plant Name: "
+            TextInput:
+                multiline: False
+                id: plant_name
+            Label:
+                text: "Watering Frequency: "
+            TextInput:
+                multiline: False
+                id: water_freq
+            Label:
+                text: "Last Watering Date(DD:MM): "
+            TextInput:
+                multiline: False
+                id: last_water_date
+            Label:
+                text: "Last Watering Hour(HH:MM): "
+            TextInput:
+                multiline: False
+                id: last_water_hour
+        GridLayout:
+            cols: 2
+
+            Button:
+                text: "Main Menu"
+                on_release:
+                    app.root.current  = "main"
+                    root.manager.transition.direction = "down"
+            Button:
+                text: "Add plant"
+                on_release:
+                    root.submit()
+
+
+
+
+
+
+
+
+
